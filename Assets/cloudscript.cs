@@ -24,10 +24,16 @@ public class cloudscript : MonoBehaviour
     {
         transform.position = transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
 
-        if (transform.position.x < deadZone)
+        /*if (transform.position.x < deadZone)
         {
             Destroy(gameObject);
             Debug.Log("Deleting cloud!");
-        }
+        }*/
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+        Debug.Log("Deleting cloud!");
     }
 }
