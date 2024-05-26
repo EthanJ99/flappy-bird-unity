@@ -709,7 +709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloud_object: {fileID: 8364495128781663815, guid: 59c20602cfb5ae944acf92543d3b40a6, type: 3}
   spawnRate: 4.3
-  heightOffset: 10
+  heightOffset: 20
 --- !u!4 &992782223
 Transform:
   m_ObjectHideFlags: 0
@@ -719,7 +719,7 @@ Transform:
   m_GameObject: {fileID: 992782220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.03, y: 0, z: -0.10323945}
+  m_LocalPosition: {x: 30.7, y: -0.1, z: -0.10323945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -5,8 +5,8 @@ using UnityEngine;
 public class cloud_spawn_script : MonoBehaviour
 {
     public GameObject cloud_object;
-    public float spawnRate = 2;
-    public float heightOffset = 20;
+    public float spawnRate;
+    public float heightOffset;
     private float timer = 0;
 
     // Start is called before the first frame update
