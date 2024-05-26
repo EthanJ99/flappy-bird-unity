@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LogicScript : MonoBehaviour
 {
     private int score = 0;
     private bool playing;
 
-    public Text scoreText;
+    // public Text scoreText;
+    public TextMeshProUGUI tmpro;
     public GameObject gameOverScreen;
 
     void Start()
@@ -32,7 +34,8 @@ public class LogicScript : MonoBehaviour
 
     private void updateScoreText()
     {
-        scoreText.text = score.ToString();
+        // scoreText.text = score.ToString();
+        tmpro.text = score.ToString();
     }
 
     public void restartGame()
