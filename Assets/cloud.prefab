@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44484bb89987e5240b9cd7583b8315e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.94
+  moveSpeed: 4
   spriteOffset: 0
   deadZone: -30

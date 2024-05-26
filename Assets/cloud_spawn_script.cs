@@ -7,6 +7,7 @@ public class cloud_spawn_script : MonoBehaviour
     public GameObject cloud_object;
     public float spawnRate;
     public float heightOffset;
+    public int initialCloudCount;
     private float timer = 0;
 
     // Start is called before the first frame update
@@ -14,7 +15,7 @@ public class cloud_spawn_script : MonoBehaviour
     {
         float screenEdgeCoordinate = 30;
         // Spawn some initial clouds so the game doesn't feel empty
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < initialCloudCount; i++)
         {
             spawnCloud(x_pos: Random.Range(-screenEdgeCoordinate, screenEdgeCoordinate));
         }
