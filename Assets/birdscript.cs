@@ -8,6 +8,10 @@ public class birdscript : MonoBehaviour
     public float flapStrength;
     public LogicScript logic;
 
+    // private float rotationSpeedAscend = 100.0f;
+    // private float rotationSpeedDescend = 200.0f;
+    public float rotationSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,12 @@ public class birdscript : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        // Rotate bird based on its ascent/descent
+        transform.rotation = Quaternion.Euler(0, 0, rigidBody.velocity.y * rotationSpeed);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Game over if bird collides with pipe
@@ -35,6 +45,11 @@ public class birdscript : MonoBehaviour
         // NOTE - Unity prints a warning if bird dies from hitting a pipe (since the bird object is deleted after the fall, but then
         // when the sprite turns invisible it tries to delete it again here)
         logic.gameOver();
+    }
+
+    private bool isAscending()
+    {
+        return rigidBody.velocity.y > 0;
     }
 
 }
