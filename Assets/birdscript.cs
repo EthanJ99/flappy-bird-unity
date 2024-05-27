@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class birdscript : MonoBehaviour
 {
+    // Maths, logic, configuration, etc
     public Rigidbody2D rigidBody;
     public float flapStrength;
     public LogicScript logic;
-
-    // private float rotationSpeedAscend = 100.0f;
-    // private float rotationSpeedDescend = 200.0f;
     public float rotationSpeed;
+
+    // Sound effects
+    public AudioSource flapSound;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +22,10 @@ public class birdscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( Input.GetKeyDown(KeyCode.Space) == true && logic.gameIsPlaying())
+        if ( Input.GetKeyDown(KeyCode.Space) == true && logic.gameIsPlaying() )
         {
             rigidBody.velocity = Vector2.up * flapStrength;
+            flapSound.Play();
         }
     }
 

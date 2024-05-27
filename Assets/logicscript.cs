@@ -9,10 +9,12 @@ public class LogicScript : MonoBehaviour
 {
     private int score = 0;
     private bool playing;
-
-    // public Text scoreText;
-    public TextMeshProUGUI tmpro;
+    public TextMeshProUGUI scoreText;
     public GameObject gameOverScreen;
+
+    public AudioSource audioSource;
+    public AudioClip gameOverSound;
+    public AudioClip scoreSound;
 
     void Start()
     {
@@ -26,6 +28,8 @@ public class LogicScript : MonoBehaviour
         if (playing)
         {
             // Only update score if bird still alive
+            audioSource.clip = scoreSound;
+            audioSource.Play();
             score += scoreIncrement;
             updateScoreText();
         }
@@ -34,8 +38,7 @@ public class LogicScript : MonoBehaviour
 
     private void updateScoreText()
     {
-        // scoreText.text = score.ToString();
-        tmpro.text = score.ToString();
+        scoreText.text = score.ToString();
     }
 
     public void restartGame()
@@ -45,8 +48,14 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver()
     {
-        gameOverScreen.SetActive(true);
-        playing = false;
+        // Check we haven't already triggered a game over (avoids duplicate game over SFX)
+        if ( gameIsPlaying() )
+        {
+            audioSource.clip = gameOverSound;
+            audioSource.Play();
+            gameOverScreen.SetActive(true);
+            playing = false;
+        }
     }
 
     public bool gameIsPlaying()
